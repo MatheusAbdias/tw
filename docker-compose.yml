@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
     postgres:
-      image: postgres:lastest
+      image: postgres
       restart: always
       environment:
         POSTGRES_DB: ${DATABASE_NAME}
