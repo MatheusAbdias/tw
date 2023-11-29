@@ -11,15 +11,15 @@ dc_down:
 	@docker compose down -v
 
 messages:
-	@poetry run manage makemessages -l pt_BR
+	@cd src && poetry run manage makemessages -l pt_BR
 
 migration:
-	@poetry run manage makemigrations
+	@cd src && poetry run manage makemigrations
 
-migrate:
-	@poetry run manage migrate
+migrate: dc_up
+	@cd src && poetry run manage migrate
 
 server: dc_up migrate
-	@poetry run manage runserver
+	@cd src && poetry run manage runserver
 
 .PHONY: test pre_commit dc_up dc_down messages migration server migrate

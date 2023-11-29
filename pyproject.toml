@@ -1,9 +1,8 @@
 [tool.poetry]
-name = "tw"
+name = "mini_tw"
 version = "0.1.0"
 description = ""
 authors = ["Matheus Abdias <matheusabdias@b2bit.company>"]
-readme = "README.md"
 
 [tool.poetry.scripts]
 manage = "manage:main"

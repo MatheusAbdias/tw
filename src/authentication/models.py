@@ -57,21 +57,6 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name = _("user")
         verbose_name_plural = _("users")
 
-    def save(
-        self,
-        force_insert=False,
-        force_update=False,
-        using=None,
-        update_fields=None,
-    ):
-        self.clean()
-        super().save(force_insert, force_update, using, update_fields)
-
-    def clean(self) -> None:
-        super().clean()
-        self.email = self.validate_email(self.email)
-        self.username = self.validate_username(self.username)
-
     def __str__(self) -> str:
         return self.email
 
