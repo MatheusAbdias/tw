@@ -137,4 +137,5 @@ DATABASES = {
 - Integração com banco de dados postgres.
 - Cadastro de usuário
   - Como um usuário, quero poder fazer meu cadastro para que eu possa ter acesso ao login.
-- [Introdução ao Docker Compose](extra_docker)
+- [Introdução ao Docker Compose](extra_docker.md)
+- [Resolução](exercise.md)
