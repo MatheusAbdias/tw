@@ -9,7 +9,7 @@ class SignupUserSerializer(serializers.Serializer):
     password = serializers.CharField(max_length=128, write_only=True)
 
     def create(self, validated_data):
-        return User.objects.create(**validated_data)
+        return User.objects.create_user(**validated_data)
 
     def validate_email(self, email: str):
         return User.validate_email(email)
