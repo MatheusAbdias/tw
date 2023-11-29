@@ -5,9 +5,9 @@
 ## Como Iniciar um projeto Django
 
 - Feramentas necessarias:
-  - [ ] Python
-  - [ ] [Poetry](https://python-poetry.org/docs/#installing-with-the-official-installer)
-  - [ ] [Docker](https://docs.docker.com/get-docker/)
+  - Python
+  - [Poetry](https://python-poetry.org/docs/#installing-with-the-official-installer)
+  - [Docker](https://docs.docker.com/get-docker/)
 - O poetry e o docker são ferramentas opcionais porem elas vão vacilitar muito o processo de desenvolvimento do projeto e durante esse documento eu vou presumir que você utilizando essas duas ferramentas.
 - Como python utiliza uma virtualenv para evitar que você tenha que baixar as dependências de seu projeto de forma global esse será nosso primeiro passo. Para que o poetry crie nossa virtalenv no diretorio do projeto, precisamos criar um aquivo de configuração com o nome poetry.toml:
 

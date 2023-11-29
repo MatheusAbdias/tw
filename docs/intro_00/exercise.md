@@ -1,3 +1,5 @@
+## Resolução do Exercicio
+
 - O Django segue um padrão chamado **Model-View-Controller (MVC)**, mas na verdade, a implementação do Django é mais próxima do **Model-View-Template (MVT)**. No MVT, o controlador é substituído pelo "Template", que lida com a lógica de apresentação, enquanto o Django lida automaticamente com o controle por meio de suas views.
 - **Model (Modelo):** Esta entidade é responsável por se comunicar com o banco de dados. Os modelos no Django representam as tabelas do banco de dados e são usados para interagir com os dados.
 - **View (Visão):** A visão no Django representa a lógica de apresentação. As views são responsáveis por processar as requisições HTTP e retornar as respostas adequadas.

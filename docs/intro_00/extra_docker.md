@@ -1,3 +1,5 @@
+## Introdução ao Docker compose
+
 - Para utilizar o docker compose é necesario ter baixado o docker e o plugin docker compose, o arquivo a seguir é um docker-compose.yml que define o serviço do postgres que será criado pelo mesmo. Este arquivo deve ser criado na raiz do diretorio e junto a ele um arquivo .env para utilizar as variavel de hambiente:
 
 #### ** `.env` **
