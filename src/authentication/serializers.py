@@ -16,3 +16,10 @@ class SignupUserSerializer(serializers.Serializer):
 
     def validate_username(self, username: str):
         return User.validate_username(username)
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ["id", "username"]
+        read_only_fields = ["id", "username"]

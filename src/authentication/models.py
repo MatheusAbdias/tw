@@ -38,6 +38,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         ),
     )
     date_joined = models.DateTimeField(_("date joined"), default=timezone.now)
+    following = models.ManyToManyField("self", related_name="followers", blank=True)
 
     objects = UserManager()
 
@@ -51,6 +52,18 @@ class User(AbstractBaseUser, PermissionsMixin):
     class UsernameAlreadyExistsError(ValidationError):
         default_detail = _("A user with that username already exists.")
         default_code = "username_already_exists"
+
+    class UserAlreadyFollowedError(ValidationError):
+        default_detail = _("You already follow this user")
+        default_code = "user_already_followed"
+
+    class UserNotFollowedError(ValidationError):
+        default_detail = _("You don't follow this user")
+        default_code = "user_not_followed"
+
+    class UserFollowYourSelfError(ValidationError):
+        default_detail = _("You cannot follow yourself")
+        default_code = "user_follow_yourself"
 
     class Meta:
         ordering = ["email"]
@@ -75,3 +88,17 @@ class User(AbstractBaseUser, PermissionsMixin):
             raise cls.UsernameAlreadyExistsError
 
         return username
+
+    def follow(self, user):
+        if self.id == user.id:
+            raise self.UserFollowYourSelfError
+
+        if self.following.filter(pk=user.pk).exists():
+            raise self.UserAlreadyFollowedError
+        self.following.add(user)
+
+    def unfollow(self, user):
+        if not self.following.filter(pk=user.pk).exists():
+            raise self.UserNotFollowedError
+
+        self.following.remove(user)
